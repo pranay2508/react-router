@@ -1,21 +1,30 @@
-import {createBrowserRouter , RouterProvider} from 'react-router-dom';
-import HomePage from './pages/Home';
-import ProductsPage from './pages/Product';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/Home";
+import ProductsPage from "./pages/Product";
+import RootLayout from "./pages/Root";
+import ErrorPage from "./pages/Error";
 
-
-// http://example.com/products => example.com is the domain and /products is the path 
+// http://example.com/products => example.com is the domain and /products is the path
 const router1 = createBrowserRouter([
-  {path:'/' ,element: <HomePage/>},
-  {path: '/products', element:<ProductsPage/>}
+  {
+    //here rootlayout is the parent layout and the 2 children route are present 
+    //here rootlayout act as a wrapper for these two children
+    path: "/",
+    element: <RootLayout />,
+    errorElement:<ErrorPage/> ,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/products", element: <ProductsPage />},
+    ],
+  },
 ]);
 
 function App() {
-
-  return <RouterProvider router={router1}/>;
+  return <RouterProvider router={router1} />;
 }
 
 export default App;
 
-//you can control the path what you want to set and it will work accordingly 
+//you can control the path what you want to set and it will work accordingly
 //so the router 1 is used as prop in router={router1} this is how it works
 //this is how we activate route
