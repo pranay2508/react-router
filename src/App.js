@@ -3,7 +3,7 @@ import HomePage from "./pages/Home";
 import ProductsPage from "./pages/Product";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
-
+import ProductDetailPage from "./pages/ProductDetail";
 // http://example.com/products => example.com is the domain and /products is the path
 const router1 = createBrowserRouter([
   {
@@ -13,12 +13,14 @@ const router1 = createBrowserRouter([
     element: <RootLayout />,
     errorElement:<ErrorPage/> ,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/products", element: <ProductsPage />},
+      { path: "", element: <HomePage /> },
+      { path: "products", element: <ProductsPage />},
+      {path:'products/:productId', element: <ProductDetailPage/>}
     ],
   },
 ]);
 
+// => index:true also a method for default page 
 function App() {
   return <RouterProvider router={router1} />;
 }
