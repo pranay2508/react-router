@@ -12,3 +12,7 @@ function ProductDetailPage(){
 }
 
 export default ProductDetailPage;
+
+//What does useParams () do?
+/// useParams is a Client Component hook that lets you read a route's dynamic params filled in by the current URL.
+// here the dynamic routes are the product list.

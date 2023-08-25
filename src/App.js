@@ -9,7 +9,7 @@ const router1 = createBrowserRouter([
   {
     //here rootlayout is the parent layout and the 2 children route are present 
     //here rootlayout act as a wrapper for these two children
-    path: "/",
+    index:true,
     element: <RootLayout />,
     errorElement:<ErrorPage/> ,
     children: [
